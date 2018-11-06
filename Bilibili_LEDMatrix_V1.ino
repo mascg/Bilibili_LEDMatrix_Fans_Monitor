@@ -118,9 +118,11 @@ void loop()
   printStringWithShift(txt, scrollDel, font, ' '); // real time
   delay(del);
 
-  printStringWithShift("  Live: ", scrollDel, font, ' '); // eng
-  printValueWithShift(viewCount, scrollDel, 0);
-  delay(del);
+  if (viewCount >= 10) {
+    printStringWithShift("  Live: ", scrollDel, font, ' '); // eng
+    printValueWithShift(viewCount, scrollDel, 0);
+    delay(del);
+  }
 
   printStringWithShift("  Play: ", scrollDel, font, ' '); // eng
   printValueWithShift(videoCount, scrollDel, 0);
