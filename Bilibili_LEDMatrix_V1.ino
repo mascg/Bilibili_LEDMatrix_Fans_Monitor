@@ -118,7 +118,7 @@ void loop()
   printStringWithShift(txt, scrollDel, font, ' '); // real time
   delay(del);
 
-  if (viewCount >= 10) {
+  if (viewCount != viewCount24h) {
     printStringWithShift("  Live: ", scrollDel, font, ' '); // eng
     printValueWithShift(viewCount, scrollDel, 0);
     delay(del);
@@ -128,13 +128,13 @@ void loop()
   printValueWithShift(videoCount, scrollDel, 0);
   delay(del);
 
-  if (subsGain1h) {
+  if (subsGain1h != 0) {
     printStringWithShift("  Fans gain 1h: ", scrollDel, font, ' '); // eng
     printValueWithShift(subsGain1h, scrollDel, 1);
     delay(del);
   }
 
-  if (viewsGain24h) {
+  if (subsGain24h != 0) {
     printStringWithShift("  Fans gain 24h: ", scrollDel, font, ' '); // eng
     printValueWithShift(subsGain24h, scrollDel, 1);
     delay(del);
