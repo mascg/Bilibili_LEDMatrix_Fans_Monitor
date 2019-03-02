@@ -50,8 +50,8 @@
 // =======================================================================
 // 配置信息
 // =======================================================================
-const char* ssid     = "Cosmos";                 // WiFi名
-const char* password = "abc12345678";            //WiFi密码
+const char* ssid     = "Alex_home_network";                 // WiFi名
+const char* password = "qwertyuiop.";            //WiFi密码
 String channelId = "96458132";                   //bilibili UID
 long utcOffset = 8;                              //时区，默认 +8 为东八区（中国北京）
 // =======================================================================
@@ -62,6 +62,7 @@ void setup()
   initMAX7219();
   sendCmdAll(CMD_SHUTDOWN, 1);
   sendCmdAll(CMD_INTENSITY, 0);
+  WiFi.enableAP(false);     //关闭AP热点
   Serial.print("Connecting WiFi ");
   WiFi.begin(ssid, password);
   printStringWithShift(" WiFi ...~", 15, font, ' ');
