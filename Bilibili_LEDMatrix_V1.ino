@@ -50,8 +50,8 @@
 // =======================================================================
 // 配置信息
 // =======================================================================
-const char* ssid     = "Alex_home_network";                 // WiFi名
-const char* password = "qwertyuiop.";            //WiFi密码
+const char* ssid     = "Cosmos";                 // WiFi名
+const char* password = "abc123456";            //WiFi密码
 String channelId = "96458132";                   //bilibili UID
 long utcOffset = 8;                              //时区，默认 +8 为东八区（中国北京）
 // =======================================================================
