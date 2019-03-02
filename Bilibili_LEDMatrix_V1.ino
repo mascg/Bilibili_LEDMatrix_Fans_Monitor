@@ -115,36 +115,38 @@ void loop()
   int del = 3000;
   int scrollDel = 20;
   char txt[10];
-  sprintf(txt, "    %02d:%02d  ", h, m);
-  printStringWithShift(txt, scrollDel, font, ' '); // real time
-  delay(del);
 
+  //+++++++++++++++++++++粉丝数+++++++++++++++++++++//
+  printStringWithShift("  Fans: ", scrollDel, font, ' '); // eng
+  printValueWithShift(subscriberCount, scrollDel, 0);
+  delay(del);
+  //+++++++++++++++++++++1小时增加粉丝数（无则不显示）+++++++++++++++++++++//
+  if (subsGain1h > 0) {
+    printStringWithShift("  Fans gain 1h: ", scrollDel, font, ' '); // eng
+    printValueWithShift(subsGain1h, scrollDel, 1);
+    delay(del);
+  }
+  //+++++++++++++++++++++24小时粉丝数（无则不显示）+++++++++++++++++++++//
+  if (subsGain24h > 0) {
+    printStringWithShift("  Fans gain 24h: ", scrollDel, font, ' '); // eng
+    printValueWithShift(subsGain24h, scrollDel, 1);
+    delay(del);
+  }
+  //+++++++++++++++++++++直播数（无则不显示）+++++++++++++++++++++//	
   if (viewCount != viewCount24h) {
     printStringWithShift("  Live: ", scrollDel, font, ' '); // eng
     printValueWithShift(viewCount, scrollDel, 0);
     delay(del);
   }
-
+  //+++++++++++++++++++++播放数+++++++++++++++++++++//
   printStringWithShift("  Play: ", scrollDel, font, ' '); // eng
   printValueWithShift(videoCount, scrollDel, 0);
   delay(del);
-
-  if (subsGain1h != 0) {
-    printStringWithShift("  Fans gain 1h: ", scrollDel, font, ' '); // eng
-    printValueWithShift(subsGain1h, scrollDel, 1);
-    delay(del);
-  }
-
-  if (subsGain24h != 0) {
-    printStringWithShift("  Fans gain 24h: ", scrollDel, font, ' '); // eng
-    printValueWithShift(subsGain24h, scrollDel, 1);
-    delay(del);
-  }
-
-
-  printStringWithShift("  Fans: ", scrollDel, font, ' '); // eng
-  printValueWithShift(subscriberCount, scrollDel, 0);
+  //+++++++++++++++++++++时间（根据前面设定的时区决定）+++++++++++++++++++++//
+  sprintf(txt, "    %02d:%02d  ", h, m);
+  printStringWithShift(txt, scrollDel, font, ' '); // real time
   delay(del);
+
 }
 // =======================================================================
 
